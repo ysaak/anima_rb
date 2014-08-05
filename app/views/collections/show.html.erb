@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <h1 class="col-xs-12 col-sm-6"><%= @collection.name %></h1>
+  <div class="col-xs-12 col-sm-6 yk-header-menubar">
+    <%= link_to raw('<span class="btn-label"><i class="fa fa-pencil"></i></span> &Eacute;diter'), edit_collection_path(@collection), :class => 'btn btn-info btn-labeled' %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  Liste des entités de avec ce tag
+</div>
