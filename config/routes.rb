@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tags
+
   get 'pages/home'
 
   root 'pages#home'

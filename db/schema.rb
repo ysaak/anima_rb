@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805162144) do
+ActiveRecord::Schema.define(version: 20140805163537) do
 
   create_table "entity_sub_types", force: true do |t|
     t.string  "name"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20140805162144) do
 
   create_table "entity_types", force: true do |t|
     t.string "name"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string "name"
+    t.text   "description"
   end
 
 end
