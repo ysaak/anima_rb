@@ -1,0 +1,106 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #e9eaed;
+    margin-top: 50px;
+}
+
+.navbar-default {
+    border-bottom: 8px solid #354c66;
+    background-color: #FFF;
+
+    -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.05),0 1px 0 rgba(0,0,0,.05);
+    box-shadow: 0 2px 2px rgba(0,0,0,.05),0 1px 0 rgba(0,0,0,.05);
+}
+
+.navbar-default .navbar-brand {
+    color: #000;
+    margin-top: -14px;
+    font-size: 30px;
+}
+
+.navbar-default .navbar-brand sub {
+    font-variant:small-caps;
+    font-size: 16px;
+}
+
+.yk-srv-menu {
+    position: absolute;
+    left: 10px;
+    padding: 10px;
+
+    /* Panel */
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.yk-srv-menu a {
+    display: inline-block;
+    width: 100px;
+    height: 75px;
+    text-align: center;
+    color: #000000;
+}
+.yk-srv-menu img {
+    margin-bottom: 3px;
+}
+
+.yk-srv-menu a+a {
+    border-left: 1px solid #EEEEEE;
+}
+
+.yk-alert-top {
+    margin-top: 58px;
+}
+
+.yk-header-menubar {
+    margin-top: 22px;
+    text-align: right;
+}
+
+.yk-nav-tabs {
+    border-bottom: 2px solid #e4e4e4;
+    position: relative;
+}
+
+.yk-nav-tabs li {
+    float: left;
+    margin-bottom: 1px;
+}
+
+.yk-nav-tabs>li>a {
+    /*padding: 6px 15px;*/
+    background-color: #f3f3f3;
+    background-color: rgba(0,0,0,.05);
+    border: 0;
+    border-bottom: 2px solid #e4e4e4;
+    color: #777;
+    margin: 0 6px -1px 0;
+    padding: 8px 20px;
+    line-height: 1.42857143;
+    border-radius: 2px 2px 0 0;
+}
+
+.yk-nav-tabs>li.active>a, .yk-nav-tabs>li.active>a:focus, .yk-nav-tabs>li.active>a:hover {
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    cursor: default;
+}
+
+.yk-nav-tabs>li.active>a, .yk-nav-tabs>li.active>a:focus, .yk-nav-tabs>li.active>a:hover {
+    border: none;
+    color: #fff;
+    background: #1d89cf;
+    border-bottom: 2px solid #1a7ab9;
+}
