@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Anima</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <title><%= titre %></title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navbar-offcanvas" data-canvas="body">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
+                <% logo = image_tag("butterfly.svg", :alt => "logo", :width => 50, :height => 50) %>
+                <%= link_to raw("#{logo} Anima <sub>Yuki Server</sub>"), root_path, :class => 'navbar-brand' %>
+            </div>
+            
+            <div class="navbar-offcanvas offcanvas" id="main-menu">
+            	<ul class="nav navbar-nav navbar-right">
+                	<li><a href="/app_dev.php/anima/animes"><span class="glyphicon glyphicon-film"></span> Animes</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> Gestion <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/app_dev.php/anima/management/genre/" title="Genres"><i class="glyphicon glyphicon-tags"></i> Genres</a></li>
+                            <li><a href="/app_dev.php/anima/management/collection/" title="Collections"><i class="glyphicon glyphicon-list-alt"></i> Collections</a></li>
+                            <li><a href="/app_dev.php/anima/management/location/" title="Localisations"><i class="glyphicon glyphicon-screenshot"></i> Localisations</a></li>
+                            <li><a href="/app_dev.php/anima/management/relation/" title="Relations"><i class="fa fa-link"></i> Relations</a></li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> ysaak <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/app_dev.php/logout" title="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
 </body>
 </html>
