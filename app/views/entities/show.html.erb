@@ -9,19 +9,18 @@
 
 <div class="row">
 
+<% if @entity.tags.present? %>
   <div class="col-xs-12">
-    <%# if anime.genres is not null and anime.genres|length > 0 %}
-    <div class="panel"><p>
-      <ul class="list-inline" style="margin-left: 10px">
-
-        <li><i class="icon-tags"></i> <strong>Genres :</strong></li>
-        {% for genre in anime.genres %}
-        <li><a href="#">{{ genre.name }}</a></li>
-        {% endfor %}
-      </ul></p>
+    <div class="panel">
+      <div class="yk-panel-title-left"><i class="glyphicon glyphicon-tags"></i> <strong>Tags :</strong></div>
+      <ul class="list-inline">
+        <% @entity.tags.each do | tag | %>
+        <li><%= link_to tag.name, tag %></li>
+        <% end %>
+      </ul>
     </div>
-    {% endif %>
   </div>
+<% end %>
 
   <div class="col-xs-9">
 
@@ -38,21 +37,21 @@
 <% if @entity.collection.present? %>
               <tr>
                 <td><strong>Collection</strong></td>
-                <td><%= link_to @entity.collection.name, '#', class: 'label label-danger' %></td>
+                <td><%= link_to @entity.collection.name, @entity.collection, class: 'label label-danger' %></td>
               </tr>
 <% end %>
 <% if @entity.entity_sub_type.present? %>
               <tr>
-                <td><strong>Type&nbsp;:</strong></td>
+                <td><strong>Type</strong></td>
                 <td><%= @entity.entity_sub_type.name %></td>
               </tr>
 <% end %>
               <tr>
-                <td><strong>Ann&eacute;e&nbsp;:</strong></td>
+                <td><strong>Ann&eacute;e</strong></td>
                 <td><%= @entity.year %></td>
               </tr>
               <tr>
-                <td><strong>&Eacute;pisodes&nbsp;:</strong></td>
+                <td><strong>&Eacute;pisodes</strong></td>
                 <td id="episodes">
                   <%= @entity.seasons if @entity.seasons != 0 %>
                   <% if @entity.episodes == 0 %>
@@ -63,7 +62,7 @@
                 </td>
               </tr>
               <tr>
-                <td><strong>Score&nbsp;:</strong></td>
+                <td><strong>Score</strong></td>
                 <td><span class="badge badge-info"><%= @entity.score %></span></td>
               </tr>
             </table>

@@ -15,6 +15,11 @@
 </div>
 <% end %>
 
-<div class="panel panel-default">
-    Liste des entités de avec ce tag
+
+<% if @tag.entities.present? %>
+<div class="row">
+  <% @tag.entities.each do |entity| %>
+      <%= render 'entities/entity_card', entity: entity, show_tag: true %>
+  <% end %>
 </div>
+<% end %>

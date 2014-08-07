@@ -26,6 +26,25 @@ body {
     font-size: 16px;
 }
 
+.panel .table {
+  margin-bottom: 0;
+}
+
+.panel .list-inline {
+  margin-top: 5px;
+  margin-bottom: 5px
+}
+
+.yk-panel-title-left {
+  float: left;
+  background-color: whitesmoke;
+  border-right: 2px solid #ddd;
+  padding: 6px 10px 6px 10px;
+  margin: -1px 5px 0px -1px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
 .yk-srv-menu {
     position: absolute;
     left: 10px;
@@ -115,6 +134,23 @@ body {
   color: #000000;
 }
 
+.yk-entity-card-with-type {
+  padding-right: 20px;
+}
+
+.yk-entity-card-type {
+  position: absolute;
+  top: 21px;
+  right: -21px;
+  transform: rotate(90deg);
+  font-size: 0.9em;
+  background-color: #f0ad4e;
+  width: 60px;
+  text-align: center;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
 .yk-entity-card img {
   border-bottom-left-radius: 6px;
   border-top-left-radius: 6px;
@@ -128,10 +164,14 @@ body {
   bottom: 5px;
 }
 
-.yk-entity-card .label-success:first-child {
+.yk-entity-card .label-success {
   left: 65px;
 }
 
-.yk-entity-card .label-danger:last-child {
+.yk-entity-card .label-danger {
   right: 5px;
+}
+
+.yk-entity-card-with-type .label-danger {
+  right: 25px;
 }

@@ -21,17 +21,7 @@ for l in l_arr do
 
 <div class="row">
 <% @entities.each do |entity| %>
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="panel clearfix yk-entity-card">
-      <%= thumb_img_tag entity.id %>
-      <%= link_to entity.title, send(entity.entity_type.view_path, entity.id) %>
-      <br />
-      <span class="label label-success"><%= entity.entity_sub_type.name %></span>
-      <% if entity.collection.present? %>
-      <span class="label label-danger"><%= entity.collection.name %></span>
-      <% end %>
-    </div>
-  </div>
+  <%= render 'entity_card', entity: entity %>
 <% end %>
 </div>
 

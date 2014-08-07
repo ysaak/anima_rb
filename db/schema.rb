@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807110248) do
+ActiveRecord::Schema.define(version: 20140807141517) do
 
   create_table "collections", force: true do |t|
     t.string "name"
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 20140807110248) do
     t.integer "episodes"
     t.integer "year"
     t.integer "score"
+  end
+
+  create_table "entities_tags", id: false, force: true do |t|
+    t.integer "entity_id"
+    t.integer "tag_id"
   end
 
   create_table "entity_sub_types", force: true do |t|

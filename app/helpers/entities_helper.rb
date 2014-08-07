@@ -1,5 +1,11 @@
 module EntitiesHelper
 
+  def entity_element(entity, with_type = false)
+
+
+
+  end
+
   def thumb_img_tag(entity_id)
 
     path = "/thumbs/#{entity_id}.jpg"

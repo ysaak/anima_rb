@@ -7,6 +7,10 @@
   </div>
 </div>
 
-<div class="panel panel-default">
-  Liste des entités de avec ce tag
-</div>
+<% if @collection.entities.present? %>
+    <div class="row">
+      <% @collection.entities.each do |entity| %>
+          <%= render 'entities/entity_card', entity: entity, show_type: true %>
+      <% end %>
+    </div>
+<% end %>
