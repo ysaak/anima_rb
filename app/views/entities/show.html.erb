@@ -75,6 +75,23 @@
         <div class="panel panel-default">
           <div class="panel-heading"><h3 class="panel-title">Stockage</h3></div>
           <ul id="diskdiv" class="list-group" data-mh="anipanel">
+            <% @storages.each do |location, entries| %>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading"><%= @locations[location].name %></h4>
+              <p class="list-group-item-text">
+                <% entries.each_with_index do |entry, index| %>
+                  <% if not ((entry[:start] == 1 or entry[:start] == 0) and entry[:end] == 0) %>
+                    <% if entry[:end] == 0 or entry[:start] == entry[:end] %>
+                      &Eacute;pisode <%= entry[:start] %>
+                    <% else %>
+                      &Eacute;pisodes <%= entry[:start] %> &agrave; <%= entry[:end] %>
+                    <% end %>
+
+                    <%= raw('<br />') if not entries.size-1 == index %>
+                  <% end %>
+                <% end %>
+              </p></li>
+            <% end %>
           </ul>
         </div>
       </div>

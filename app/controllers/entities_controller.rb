@@ -59,6 +59,10 @@ class EntitiesController < ApplicationController
 
       end
     end
+
+    # Storage
+    @storages = Storage.find_by_entity(@entity.id)
+    @locations = Location.all.index_by(&:id)
   end
 
   # GET /entities/new

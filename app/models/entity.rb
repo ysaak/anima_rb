@@ -18,8 +18,6 @@ class Entity < ActiveRecord::Base
 
     query += 'ORDER BY title ASC'
 
-    puts query
-
     results = Entity.connection.execute(query)
 
     letters = []

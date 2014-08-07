@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807174156) do
+ActiveRecord::Schema.define(version: 20140807205301) do
 
   create_table "collections", force: true do |t|
     t.string "name"
@@ -51,9 +51,25 @@ ActiveRecord::Schema.define(version: 20140807174156) do
     t.string "view_path"
   end
 
+  create_table "locations", force: true do |t|
+    t.string "name"
+  end
+
   create_table "relations", force: true do |t|
     t.string  "name"
     t.integer "opposite_id"
+  end
+
+  create_table "storage_lines", force: true do |t|
+    t.integer "storage_id"
+    t.integer "entity_id"
+    t.integer "start"
+    t.integer "end"
+  end
+
+  create_table "storages", force: true do |t|
+    t.integer "location_id"
+    t.integer "type"
   end
 
   create_table "tags", force: true do |t|
