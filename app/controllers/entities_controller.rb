@@ -32,9 +32,33 @@ class EntitiesController < ApplicationController
   # GET /entities/1.json
   def show
 
+    @entity = Entity.find(params[:id])
 
+    # Relations
+    @relations = {}
 
-    #Client.where("orders_count = ?", params[:orders])
+    if @entity.relations.present?
+
+      @entity.relations.each do | relation |
+
+        if not @relations.include? relation.relation_id
+          @relations[relation.relation_id] = {
+              'relation' => relation.relation,
+              'entities' => []
+          }
+        end
+
+        @relations[relation.relation_id]['entities'] << relation.related_entity
+      end
+
+      # Sort relations
+
+      @relations.each do | relation |
+
+        relation[1]['entities'].sort! { | a,b | a.title <=> b.title }
+
+      end
+    end
   end
 
   # GET /entities/new

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :relations
   resources :entities, :except => [:index, :show]
   resources :collections
   resources :tags

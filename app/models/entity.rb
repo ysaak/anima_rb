@@ -2,7 +2,10 @@ class Entity < ActiveRecord::Base
   belongs_to :entity_type
   belongs_to :entity_sub_type
   belongs_to :collection
+
   has_and_belongs_to_many :tags, -> { order('tags.name ASC') }
+
+  has_many :relations, class_name: 'EntityRelation'
 
   def self.letters(entity_type)
 

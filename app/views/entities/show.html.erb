@@ -11,7 +11,7 @@
 
 <% if @entity.tags.present? %>
   <div class="col-xs-12">
-    <div class="panel">
+    <div class="panel panel-default">
       <div class="yk-panel-title-left"><i class="glyphicon glyphicon-tags"></i> <strong>Tags :</strong></div>
       <ul class="list-inline">
         <% @entity.tags.each do | tag | %>
@@ -79,6 +79,18 @@
         </div>
       </div>
     </div>
+  <% if not @relations.empty? %>
+
+    <div class="panel panel-default"><div class="panel-body">
+
+      <% @relations.each do | rel_id, relation | %>
+          <p><strong><%= (relation['relation']).name %>&nbsp;:</strong>
+          <%= raw(relation['entities'].map { |e| link_to e.title, send(e.entity_type.view_path, id: e.id) }.join ', ') %></p>
+
+      <% end %>
+    </div></div>
+
+  <% end %>
 
   <% if not @entity.synopsis.blank? %>
     <div class="panel panel-default">
