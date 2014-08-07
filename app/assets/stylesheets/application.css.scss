@@ -101,3 +101,37 @@ body {
     background: #1d89cf;
     border-bottom: 2px solid #1a7ab9;
 }
+
+.yk-entity-card {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  border-color: #ddd;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.yk-entity-card a {
+  color: #000000;
+}
+
+.yk-entity-card img {
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  border-right: 1px solid #ddd;
+  float: left;
+  margin-right: 5px;
+}
+
+.yk-entity-card .label {
+  position: absolute;
+  bottom: 5px;
+}
+
+.yk-entity-card .label-success:first-child {
+  left: 65px;
+}
+
+.yk-entity-card .label-danger:last-child {
+  right: 5px;
+}

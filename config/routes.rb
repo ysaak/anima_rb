@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  resources :entities, :except => [:index, :show]
   resources :collections
   resources :tags
 
-  get 'pages/home'
+  get 'animes/(:letter)', to: 'entities#index', as: 'animes', :type => 1
+  get 'anime/:id', to: 'entities#show', as: 'anime'
+
+  get 'movies/(:letter)', to: 'entities#index', as: 'movies', :type => 2
+  get 'movie/:id', to: 'entities#show', as: 'movie'
+
+  get 'books/(:letter)', to: 'entities#index', as: 'books', :type => 3
+  get 'book/:id', to: 'entities#show', as: 'book'
 
   root 'pages#home'
 

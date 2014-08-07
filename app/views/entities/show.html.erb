@@ -1,0 +1,103 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <h1 class="col-xs-12 col-sm-9"><%= @entity.title %></h1>
+  <div class="col-xs-12 col-sm-3 yk-header-menubar">
+    <%= link_to 'Edit', edit_entity_path(@entity), class: 'btn btn-info' %>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-xs-12">
+    <%# if anime.genres is not null and anime.genres|length > 0 %}
+    <div class="panel"><p>
+      <ul class="list-inline" style="margin-left: 10px">
+
+        <li><i class="icon-tags"></i> <strong>Genres :</strong></li>
+        {% for genre in anime.genres %}
+        <li><a href="#">{{ genre.name }}</a></li>
+        {% endfor %}
+      </ul></p>
+    </div>
+    {% endif %>
+  </div>
+
+  <div class="col-xs-9">
+
+    <div class="row">
+
+      <div class="col-xs-6">
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><h3 class="panel-title">Informations</h3></div>
+          <div id="infodiv" data-mh="anipanel">
+            <table class="table" width="100%">
+              <col width="100px" />
+              <col />
+<% if @entity.collection.present? %>
+              <tr>
+                <td><strong>Collection</strong></td>
+                <td><%= link_to @entity.collection.name, '#', class: 'label label-danger' %></td>
+              </tr>
+<% end %>
+<% if @entity.entity_sub_type.present? %>
+              <tr>
+                <td><strong>Type&nbsp;:</strong></td>
+                <td><%= @entity.entity_sub_type.name %></td>
+              </tr>
+<% end %>
+              <tr>
+                <td><strong>Ann&eacute;e&nbsp;:</strong></td>
+                <td><%= @entity.year %></td>
+              </tr>
+              <tr>
+                <td><strong>&Eacute;pisodes&nbsp;:</strong></td>
+                <td id="episodes">
+                  <%= @entity.seasons if @entity.seasons != 0 %>
+                  <% if @entity.episodes == 0 %>
+                      Inconnu
+                  <% else %>
+                      <%= @entity.episodes %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Score&nbsp;:</strong></td>
+                <td><span class="badge badge-info"><%= @entity.score %></span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xs-6">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h3 class="panel-title">Stockage</h3></div>
+          <ul id="diskdiv" class="list-group" data-mh="anipanel">
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  <% if not @entity.synopsis.blank? %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">Synopsis</h3></div>
+      <div class="panel-body">
+        <%= simple_format @entity.synopsis %>
+      </div>
+    </div>
+  <% end %>
+
+  </div>
+
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <%# {# <a data-toggle="modal" href="#editImageModal"><i class="icon-pencil icon-white"></i> &Eacute;diter image</a> #} %>
+      <%= picture_img_tag @entity.id %>
+    </div>
+  </div>
+
+</div>
+

@@ -17,3 +17,9 @@
 //= require_tree .
 
 
+$(document).ready(function() {
+    $('.yk-entity-card').click(function() {
+        var link = $("a", this).attr('href');
+        location.href = link;
+    });
+});

@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805173541) do
+ActiveRecord::Schema.define(version: 20140807110248) do
 
   create_table "collections", force: true do |t|
     t.string "name"
+  end
+
+  create_table "entities", force: true do |t|
+    t.integer "entity_type_id"
+    t.integer "entity_sub_type_id"
+    t.integer "collection_id"
+    t.string  "title"
+    t.text    "synopsis"
+    t.integer "seasons"
+    t.integer "episodes"
+    t.integer "year"
+    t.integer "score"
   end
 
   create_table "entity_sub_types", force: true do |t|
@@ -24,6 +36,8 @@ ActiveRecord::Schema.define(version: 20140805173541) do
 
   create_table "entity_types", force: true do |t|
     t.string "name"
+    t.string "pagination_path"
+    t.string "view_path"
   end
 
   create_table "tags", force: true do |t|

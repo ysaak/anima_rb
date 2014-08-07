@@ -1,0 +1,37 @@
+<h1><%= @entity_type.name %></h1>
+
+<div class="text-center">
+<ul class="pagination">
+<%
+l_arr = ['#'] + ('A'..'Z').to_a
+for l in l_arr do
+  li_class = ''
+
+  if @letters.include? l and @letter != l
+    text = link_to l, send(@entity_type.pagination_path, letter: l)
+  else
+    li_class = @letter == l ? ' class="active"' : ' class="disabled"'
+    text = raw("<span>#{l}</span>")
+  end
+%>
+  <li<%= raw(li_class) %>><%= text %></li>
+<% end %>
+</ul>
+</div>
+
+<div class="row">
+<% @entities.each do |entity| %>
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="panel clearfix yk-entity-card">
+      <%= thumb_img_tag entity.id %>
+      <%= link_to entity.title, send(entity.entity_type.view_path, entity.id) %>
+      <br />
+      <span class="label label-success"><%= entity.entity_sub_type.name %></span>
+      <% if entity.collection.present? %>
+      <span class="label label-danger"><%= entity.collection.name %></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+</div>
+
