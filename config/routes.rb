@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :locations
-  resources :relations
+  resources :relations, :except => [:show]
   resources :entities, :except => [:index, :show]
   resources :collections
   resources :tags

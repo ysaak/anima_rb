@@ -1,27 +1,31 @@
-<h1>Listing relations</h1>
+<div class="row">
+  <h1 class="col-xs-12 col-sm-6">Relations</h1>
+  <div class="col-xs-12 col-sm-6 yk-header-menubar">
+    <%= link_to raw('<span class="btn-label"><i class="fa fa-plus"></i></span>Nouvelle relation'), new_relation_path, class: 'btn btn-info btn-labeled' %>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Opposite</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @relations.each do |relation| %>
+<div class="panel panel-default">
+  <table class="table">
+    <col span="2" />
+    <col width="80px" span="2" />
+    <thead>
       <tr>
-        <td><%= relation.name %></td>
-        <td><%= relation.opposite.name if relation.opposite.present? %></td>
-        <td><%= link_to 'Show', relation %></td>
-        <td><%= link_to 'Edit', edit_relation_path(relation) %></td>
-        <td><%= link_to 'Destroy', relation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nom</th>
+        <th>Inverse</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Relation', new_relation_path %>
+    <tbody>
+      <% @relations.each do |relation| %>
+        <tr>
+          <td><%= relation.name %></td>
+          <td><%= relation.opposite.name if relation.opposite.present? %></td>
+          <td><%= link_to 'Edit', edit_relation_path(relation), class: 'btn btn-warning' %></td>
+          <td><%= link_to 'Destroy', relation, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
