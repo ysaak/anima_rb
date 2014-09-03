@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// require jquery
 // require jquery_ujs
+//= require jquery/dist/jquery.min.js
+//= require bootstrap/dist/js/bootstrap.min.js
+//= require bootstrap-jasny/dist/js/jasny-bootstrap.min.js
 //= require turbolinks
-//= require bootstrap
 //= require_tree .
-
 
 $(document).ready(function() {
     $('.yk-entity-card').click(function() {

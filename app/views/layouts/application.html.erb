@@ -4,52 +4,89 @@
     <title><%= titre %></title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
     <%= csrf_meta_tags %>
 </head>
 <body>
+    <div class="navmenu navmenu-default navmenu-fixed-right offcanvas" id="main-menu">
+
+      <form class="yk-offcanvas-form" role="search">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" autocomplete="off" autofocus="autofocus" placeholder="Search">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+            </span>
+          </div>
+        </div>
+      </form>
+
+      <p class="yk-offcanvas-subtitle"><i class="fa fa-files-o"></i> Entit&eacute;s</p>
+
+      <ul class="nav navmenu-nav">
+        <li class="<%= 'active' if is_active_link? /^\/anime(s)?/ %>"><%= link_to raw('<i class="fa fa-film"></i> Animes'), animes_path %></li>
+        <li class="<%= 'active' if is_active_link? /^\/movie(s)?/  %>"><%= link_to raw('<i class="fa fa-video-camera"></i> Movies'), movies_path %></li>
+        <li class="<%= 'active' if is_active_link? /^\/book(s)?/  %>"><%= link_to raw('<i class="fa fa-book"></i> Books'), books_path %></li>
+      </ul>
+
+      <p class="yk-offcanvas-subtitle"><i class="fa fa-cog"></i> Gestion</p>
+
+      <ul class="nav navmenu-nav">
+        <li><%= link_to raw('<i class="fa fa-tags"></i> Tags'), tags_path %></li>
+        <li><%= link_to raw('<i class="fa fa-flag"></i> Collections'), collections_path %></li>
+        <li><%= link_to raw('<i class="fa fa-crosshairs"></i> Localisations'), locations_path %></li>
+        <li><%= link_to raw('<i class="fa fa-link"></i> Relations'), relations_path %></li>
+      </ul>
+
+
+    </div>
 
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navbar-offcanvas" data-canvas="body">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+
+              <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#main-menu" data-canvas="body">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
                 <% logo = image_tag("butterfly.svg", :alt => "logo", :width => 50, :height => 50) %>
-                <%= link_to raw("#{logo} Anima <sub>Yuki Server</sub>"), root_path, :class => 'navbar-brand' %>
+                <%= link_to raw("#{logo} Anima"), root_path, :class => 'navbar-brand' %>
             </div>
-            
-            <div class="navbar-offcanvas offcanvas" id="main-menu">
-                <ul class="nav navbar-nav">
-                  <li class="<%= 'active' if is_active_link? /^\/anime(s)?/ %>"><%= link_to raw('<span class="glyphicon glyphicon-film"></span> Animes'), animes_path %></li>
-                  <li class="<%= 'active' if is_active_link? /^\/movie(s)?/  %>"><%= link_to 'Movies', movies_path %></li>
-                  <li class="<%= 'active' if is_active_link? /^\/book(s)?/  %>"><%= link_to 'Books', books_path %></li>
-                </ul>
 
-            	<ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav hidden-xs">
+              <li class="<%= 'active' if is_active_link? /^\/anime(s)?/ %>"><%= link_to raw('<i class="fa fa-film"></i> Animes'), animes_path %></li>
+              <li class="<%= 'active' if is_active_link? /^\/movie(s)?/  %>"><%= link_to raw('<i class="fa fa-video-camera"></i> Movies'), movies_path %></li>
+              <li class="<%= 'active' if is_active_link? /^\/book(s)?/  %>"><%= link_to raw('<i class="fa fa-book"></i> Books'), books_path %></li>
+            </ul>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-wrench"></span> Gestion <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><%= link_to raw('<i class="glyphicon glyphicon-tags"></i> Tags'), tags_path %></li>
-                            <li><%= link_to raw('<i class="glyphicon glyphicon-list-alt"></i> Collections'), collections_path %></li>
-                            <li><%= link_to raw('<i class="glyphicon glyphicon-screenshot"></i> Localisations'), locations_path %></li>
-                            <li><%= link_to raw('<i class="fa fa-link"></i> Relations'), relations_path %></li>
-                        </ul>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> ysaak <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/app_dev.php/logout" title="logout">Logout</a></li>
-                        </ul>
-                    </li>
+            <ul class="nav navbar-nav navbar-right hidden-xs">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> <span class="visible-xs-inline">Gestion</span> <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to raw('<i class="fa fa-tags"></i> Tags'), tags_path %></li>
+                  <li><%= link_to raw('<i class="fa fa-flag"></i> Collections'), collections_path %></li>
+                  <li><%= link_to raw('<i class="fa fa-crosshairs"></i> Localisations'), locations_path %></li>
+                  <li><%= link_to raw('<i class="fa fa-link"></i> Relations'), relations_path %></li>
                 </ul>
-            </div>
+              </li>
+            </ul>
+
+            <form class="navbar-form navbar-right hidden-xs" role="search">
+              <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" autocomplete="off" autofocus="autofocus" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+              </div>
+            </form>
         </div>
     </nav>
 
@@ -59,7 +96,6 @@
     </div>
 
     <%= debug(params) if Rails.env.development? %>
-
     <%= javascript_include_tag 'application' %>
 </body>
 </html>
