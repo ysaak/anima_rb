@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= titre %></title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= titre %></title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <%= csrf_meta_tags %>
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+  <link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+  <link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+
+  <%= csrf_meta_tags %>
 </head>
 <body>
     <div class="navmenu navmenu-default navmenu-fixed-right offcanvas" id="main-menu">
@@ -16,7 +23,7 @@
       <form class="yk-offcanvas-form" role="search">
         <div class="form-group">
           <div class="input-group">
-            <input type="text" class="form-control" autocomplete="off" autofocus="autofocus" placeholder="Search">
+            <input type="text" class="form-control" autocomplete="off" placeholder="Search">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
             </span>
@@ -80,7 +87,7 @@
             <form class="navbar-form navbar-right hidden-xs" role="search">
               <div class="form-group">
                 <div class="input-group">
-                    <input type="text" class="form-control" autocomplete="off" autofocus="autofocus" placeholder="Search">
+                    <input type="text" class="form-control" autocomplete="off" placeholder="Search">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
                     </span>
