@@ -1,8 +1,3 @@
-@import "bootstrap/dist/css/bootstrap.min";
-@import "bootstrap-jasny/dist/css/jasny-bootstrap.min";
-
-@import "font-awesome";
-
 body {
   background-color: #e9eaed;
   margin-top: 50px;
@@ -18,8 +13,12 @@ body {
 
 .navbar-default .navbar-brand {
     color: #000;
-    margin-top: -14px;
+    margin-top: -10px;
     font-size: 30px;
+}
+
+.navbar-default .navbar-brand img {
+  margin-top: -5px;
 }
 
 .navbar-default .navbar-brand sub {

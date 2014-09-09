@@ -13,6 +13,9 @@
   <link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
   <link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
 
+  <%= stylesheet_link_tag '/css/bootstrap.min.css', media: 'all' %>
+  <%= stylesheet_link_tag '/css/jasny-bootstrap.min.css', media: 'all' %>
+  <%= stylesheet_link_tag '/css/font-awesome.min.css', media: 'all' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
   <%= csrf_meta_tags %>
@@ -62,7 +65,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-                <% logo = image_tag("butterfly.svg", :alt => "logo", :width => 50, :height => 50) %>
+                <% logo = image_tag("app-icon.png", :alt => "logo", :width => 50, :height => 50) %>
                 <%= link_to raw("#{logo} Anima"), root_path, :class => 'navbar-brand' %>
             </div>
 
@@ -103,6 +106,10 @@
     </div>
 
     <%= debug(params) if Rails.env.development? %>
+
+    <%= javascript_include_tag '/js/jquery.min.js' %>
+    <%= javascript_include_tag '/js/bootstrap.min.js' %>
+    <%= javascript_include_tag '/js/jasny-bootstrap.min.js' %>
     <%= javascript_include_tag 'application' %>
 </body>
 </html>

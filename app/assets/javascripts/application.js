@@ -12,9 +12,6 @@
 //
 // require jquery
 // require jquery_ujs
-//= require jquery/dist/jquery.min.js
-//= require bootstrap/dist/js/bootstrap.min.js
-//= require bootstrap-jasny/dist/js/jasny-bootstrap.min.js
 //= require turbolinks
 //= require_tree .
 

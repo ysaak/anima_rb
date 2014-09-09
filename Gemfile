@@ -16,9 +16,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+#gem 'jquery-rails'
 #gem 'bootstrap-sass', '~> 3.2.0'
-gem 'font-awesome-rails'
+#gem 'font-awesome-rails'
 gem 'autoprefixer-rails'
 #gem 'jasny_bootstrap_extension_rails'
 
