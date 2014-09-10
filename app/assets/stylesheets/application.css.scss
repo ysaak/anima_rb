@@ -190,3 +190,7 @@ body {
 .yk-entity-card-with-type .label-danger {
   right: 25px;
 }
+
+.search-field, .navbar-form div.form-control {
+  min-width: 200px;
+}

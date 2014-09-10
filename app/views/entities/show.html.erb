@@ -22,11 +22,11 @@
   </div>
 <% end %>
 
-  <div class="col-xs-9">
+  <div class="col-xs-12 col-sm-9">
 
     <div class="row">
 
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-md-6">
 
         <div class="panel panel-default">
           <div class="panel-heading"><h3 class="panel-title">Informations</h3></div>
@@ -71,7 +71,7 @@
 
       </div>
 
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading"><h3 class="panel-title">Stockage</h3></div>
           <ul id="diskdiv" class="list-group" data-mh="anipanel">
@@ -98,14 +98,17 @@
     </div>
   <% if not @relations.empty? %>
 
-    <div class="panel panel-default"><div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">Relations</h3></div>
+      <div class="panel-body">
 
       <% @relations.each do | rel_id, relation | %>
           <p><strong><%= (relation['relation']).name %>&nbsp;:</strong>
           <%= raw(relation['entities'].map { |e| link_to e.title, send(e.entity_type.view_path, id: e.id) }.join ', ') %></p>
 
       <% end %>
-    </div></div>
+      </div>
+    </div>
 
   <% end %>
 
@@ -120,7 +123,7 @@
 
   </div>
 
-  <div class="col-xs-3">
+  <div class="col-xs-12 col-sm-3">
     <div class="panel panel-default">
       <%# {# <a data-toggle="modal" href="#editImageModal"><i class="icon-pencil icon-white"></i> &Eacute;diter image</a> #} %>
       <%= picture_img_tag @entity.id %>

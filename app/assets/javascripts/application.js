@@ -15,9 +15,33 @@
 //= require turbolinks
 //= require_tree .
 
+
 $(document).ready(function() {
     $('.yk-entity-card').click(function() {
         var link = $("a", this).attr('href');
         location.href = link;
+    });
+
+    $('.search-field').each(function() {
+
+        var ref_form = this.form
+
+        var data_url = $(ref_form).attr('suggests')
+
+        var ms = $(this).magicSuggest({
+            method: 'get',
+            data: data_url,
+            displayField: 'title',
+            valueField: 'title',
+            hideTrigger: true,
+            minChars: 2
+        });
+
+        $(ms).on('keyup', function(e,m,v) {
+
+            if (v.keyCode == 13 && ms.getRawValue().length == 0) {
+                ref_form.submit()
+            }
+        });
     });
 });

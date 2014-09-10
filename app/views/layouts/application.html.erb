@@ -16,6 +16,7 @@
   <%= stylesheet_link_tag '/css/bootstrap.min.css', media: 'all' %>
   <%= stylesheet_link_tag '/css/jasny-bootstrap.min.css', media: 'all' %>
   <%= stylesheet_link_tag '/css/font-awesome.min.css', media: 'all' %>
+  <%= stylesheet_link_tag '/css/magicsuggest.min.css', media: 'all' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
   <%= csrf_meta_tags %>
@@ -23,16 +24,7 @@
 <body>
     <div class="navmenu navmenu-default navmenu-fixed-right offcanvas" id="main-menu">
 
-      <form class="yk-offcanvas-form" role="search">
-        <div class="form-group">
-          <div class="input-group">
-            <input type="text" class="form-control" autocomplete="off" placeholder="Search">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-            </span>
-          </div>
-        </div>
-      </form>
+      <%= render 'entities/search_form', classes: 'yk-offcanvas-form' %>
 
       <p class="yk-offcanvas-subtitle"><i class="fa fa-files-o"></i> Entit&eacute;s</p>
 
@@ -87,16 +79,7 @@
               </li>
             </ul>
 
-            <form class="navbar-form navbar-right hidden-xs" role="search">
-              <div class="form-group">
-                <div class="input-group">
-                    <input type="text" class="form-control" autocomplete="off" placeholder="Search">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
-              </div>
-            </form>
+            <%= render 'entities/search_form', classes: 'navbar-form navbar-right hidden-xs' %>
         </div>
     </nav>
 
@@ -110,6 +93,7 @@
     <%= javascript_include_tag '/js/jquery.min.js' %>
     <%= javascript_include_tag '/js/bootstrap.min.js' %>
     <%= javascript_include_tag '/js/jasny-bootstrap.min.js' %>
+    <%= javascript_include_tag '/js/magicsuggest.min.js' %>
     <%= javascript_include_tag 'application' %>
 </body>
 </html>

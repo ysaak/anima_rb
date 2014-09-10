@@ -28,6 +28,40 @@ class EntitiesController < ApplicationController
     @entities = Entity.where('entity_type_id = ? AND UPPER(LEFT(title,1)) REGEXP ?', params[:type], clause).order('title')
   end
 
+  # GET /search
+  def search
+    if not params[:query].blank?
+
+      clause = ''
+
+      if params[:query].kind_of? Array
+        entry = []
+        for e in params[:query] do
+          entry << Regexp.escape(e.upcase)
+        end
+
+        clause = entry.join('|')
+      else
+        clause = params[:query]
+      end
+
+      @entities = Entity.where('UPPER(title) REGEXP ?', clause).order('title')
+    else
+      @entities = []
+    end
+
+    if @entities.length == 1
+      entity = @entities[0]
+      redirect_to send(entity.entity_type.view_path, entity.id)
+    end
+  end
+
+  def search_suggests
+    if not params[:query].blank?
+      @entities = Entity.where('UPPER(title) LIKE ?', '%' + params[:query] + '%').order('title')
+    end
+  end
+
   # GET /entities/1
   # GET /entities/1.json
   def show

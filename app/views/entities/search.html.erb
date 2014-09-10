@@ -1,0 +1,10 @@
+<h1>Recherche</h1>
+
+<%= render 'search_form' %>
+
+<div class="row">
+<% @entities.each do |entity| %>
+  <%= render 'entity_card', entity: entity, show_type: true %>
+<% end %>
+</div>
+

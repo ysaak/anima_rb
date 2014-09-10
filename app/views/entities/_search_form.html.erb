@@ -1,0 +1,12 @@
+<% added_classes = local_assigns.has_key?(:classes) ? classes : '' %>
+
+<%= form_tag('/search', method: 'get', class: added_classes, role: 'search', enforce_utf8: false, suggests: url_for(:search_suggests)) do %>
+  <div class="form-group">
+    <div class="input-group">
+      <input type="search" class="form-control search-field" name="query" autocomplete="off" placeholder="Rechercher">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+      </span>
+    </div>
+  </div>
+<% end %>

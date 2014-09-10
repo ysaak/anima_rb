@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'books/(:letter)', to: 'entities#index', as: 'books', :type => 3
   get 'book/:id', to: 'entities#show', as: 'book'
 
+  get 'search/', to: 'entities#search', as: 'search'
+  get 'search/suggests', to: 'entities#search_suggests', as: 'search_suggests', format: 'json'
+
   root 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
