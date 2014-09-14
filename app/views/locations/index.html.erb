@@ -1,6 +1,20 @@
-<h1>Listing en_locations</h1>
+<h1>Liste des localisations</h1>
 
-<table>
+<div class="row">
+
+  <div class="col-md-2 yk-sidebar">
+    <ul class="nav nav-pills nav-stacked">
+      <li><%= link_to raw('<i class="fa fa-tags"></i> Tags'), tags_path %></li>
+      <li><%= link_to raw('<i class="fa fa-flag"></i> Collections'), collections_path %></li>
+      <li class="<%= 'active2' if is_active_link? /^\/admin\/locations/ %>"><%= link_to raw('<i class="fa fa-crosshairs"></i> Localisations'), locations_path %></li>
+      <li><%= link_to raw('<i class="fa fa-link"></i> Relations'), relations_path %></li>
+    </ul>
+  </div>
+
+  <div class="col-md-10">
+
+    <div class="panel panel-default">
+      <table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,7 +33,9 @@
     <% end %>
   </tbody>
 </table>
-
+    </div>
 <br>
 
 <%= link_to 'New En location', new_location_path %>
+  </div>
+</div>
